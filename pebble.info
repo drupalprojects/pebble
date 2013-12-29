@@ -1,1 +1,6 @@
 name = Pebble
+description = Provides a bridge between Drupal and the Pebble JS Framework.
+package = Mobile
+core = 7.x
+dependencies[] = services
+dependencies[] = rest_server

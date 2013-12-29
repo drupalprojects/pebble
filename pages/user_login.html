@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>User Login</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+  </head>
+  <body>
+    <div data-role="page" id="page_user_login">
+      <div data-role="header"><h1>Login</h1></div><!-- /header -->
+      <div data-role="content" class='content'>
+        <div data-role="fieldcontain">
+          <label for="page_user_login_name">Username</label>
+          <input type="text" id="page_user_login_name" />
+        </div>
+        <div data-role="fieldcontain">
+          <label for="page_user_login_pass">Password</label>
+          <input type="password" id="page_user_login_pass" />
+        </div>
+        <fieldset>
+          <div><button type="submit" id="page_user_login_submit">Login</button></div>
+        </fieldset>
+      </div><!-- /content -->
+    </div><!-- /page -->
+    <script type="text/javascript">
+      $().ready(function() {
+          $('#page_user_login_submit').on('click',function(){
+              var name = $('#page_user_login_name').val();
+              if (!name) { alert('Please enter your user name.'); return false; }
+              var pass = $('#page_user_login_pass').val();
+              if (!pass) { alert('Please enter your password.'); return false; }
+              
+               var options = {
+                 "name":name,
+                 "pass":pass,
+                 "page":"user_login",
+               };
+               var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(options));
+               document.location = location;
+               return false;
+            });
+      });
+    </script>
+  </body>
+</html>
+
+
