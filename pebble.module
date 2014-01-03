@@ -13,8 +13,8 @@ function pebble_help($path, $arg) {
     case 'admin/help#pebble':
       // Show documentation URL.  
       $doc_msg = t(
-        'The <a href="@doc_url">Pebble Documentation</a> contains more information on help topics.',
-        array('@doc_url' => 'https://github.com/signalpoint/pebble-drupal')
+        'The <a href="@doc_url">PebbleGap Documentation</a> contains more information on help topics.',
+        array('@doc_url' => 'http://pebblegap.org/get-started')
       );
       return "<p>$doc_msg</p>";
       break;
@@ -64,6 +64,38 @@ function pebble_default_services_endpoint() {
     ),
   );
   $endpoint->resources = array(
+    'comment' => array(
+      'operations' => array(
+        'create' => array(
+          'enabled' => '1',
+        ),
+        'retrieve' => array(
+          'enabled' => '1',
+        ),
+        'update' => array(
+          'enabled' => '1',
+        ),
+        'delete' => array(
+          'enabled' => '1',
+        ),
+      ),
+    ),
+    'node' => array(
+      'operations' => array(
+        'retrieve' => array(
+          'enabled' => '1',
+        ),
+        'create' => array(
+          'enabled' => '1',
+        ),
+        'update' => array(
+          'enabled' => '1',
+        ),
+        'delete' => array(
+          'enabled' => '1',
+        ),
+      ),
+    ),
     'system' => array(
       'actions' => array(
         'connect' => array(
@@ -71,7 +103,53 @@ function pebble_default_services_endpoint() {
         ),
       ),
     ),
+    'taxonomy_term' => array(
+      'operations' => array(
+        'retrieve' => array(
+          'enabled' => '1',
+        ),
+        'create' => array(
+          'enabled' => '1',
+        ),
+        'update' => array(
+          'enabled' => '1',
+        ),
+        'delete' => array(
+          'enabled' => '1',
+        ),
+      ),
+    ),
+    'taxonomy_vocabulary' => array(
+      'operations' => array(
+        'retrieve' => array(
+          'enabled' => '1',
+        ),
+        'create' => array(
+          'enabled' => '1',
+        ),
+        'update' => array(
+          'enabled' => '1',
+        ),
+        'delete' => array(
+          'enabled' => '1',
+        ),
+      ),
+    ),
     'user' => array(
+      'operations' => array(
+        'retrieve' => array(
+          'enabled' => '1',
+        ),
+        'create' => array(
+          'enabled' => '1',
+        ),
+        'update' => array(
+          'enabled' => '1',
+        ),
+        'delete' => array(
+          'enabled' => '1',
+        ),
+      ),
       'actions' => array(
         'login' => array(
           'enabled' => '1',
@@ -80,6 +158,17 @@ function pebble_default_services_endpoint() {
               'resource_api_version' => '1.0',
             ),
           ),
+        ),
+        'logout' => array(
+          'enabled' => '1',
+          'settings' => array(
+            'services' => array(
+              'resource_api_version' => '1.0',
+            ),
+          ),
+        ),
+        'register' => array(
+          'enabled' => '1',
         ),
       ),
     ),
